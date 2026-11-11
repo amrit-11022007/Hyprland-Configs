@@ -1,0 +1,133 @@
+@define-color base #1b2027;
+@define-color surface #242b34;
+@define-color elevated #2d3540;
+@define-color text #ffffff;
+@define-color muted #89939e;
+@define-color accent #7fb7a4;
+@define-color blue #8da9c4;
+@define-color warm #d9a66b;
+@define-color border #343e49;
+@define-color error #d98282;
+
+/* new: greens for bar + pills */
+@define-color bar-green #213630;
+@define-color pill #2a4a40;
+@define-color pill-active #3d7562;
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 11px;
+    font-weight: 500;
+    min-height: 0;
+}
+
+/* Bar: translucent green; Hyprland supplies the blur behind it */
+window#waybar {
+    background: alpha(@bar-green, 0.45);
+    color: @text;
+    border: none;
+    border-bottom: 1px solid alpha(@accent, 0.25);
+}
+
+/* Center pill: workspaces */
+#workspaces {
+    background: @pill;
+    border-radius: 8px;
+    padding: 2 4px;
+    margin: 3px 0 3px 6px;
+}
+
+#workspaces button {
+    color: @muted;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    padding: 0 8px;
+    margin: 2px 1px;
+    transition: all 0.2s ease;
+}
+
+#workspaces button.active {
+    color: #ffffff;
+    background: @pill-active;
+}
+
+#workspaces button:hover {
+    color: @text;
+    background: alpha(@accent, 0.2);
+    box-shadow: none;
+}
+
+#workspaces button.urgent {
+    color: @warm;
+}
+
+/* Left: plain white clock, no pill */
+#clock {
+    color: #ffffff;
+    font-weight: 600;
+    margin: 0 5px;
+}
+
+/* Right pills: one per module */
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#battery,
+#tray {
+    background: @pill;
+    color: @text;
+    border-radius: 20px;
+    padding: 0 10px;
+    margin: 3px 0;
+}
+
+#tray {
+    margin-right: 6px;
+}
+
+#network.disconnected {
+    color: @error;
+}
+
+#pulseaudio.muted {
+    color: @muted;
+}
+
+#battery.warning {
+    color: @warm;
+}
+
+#battery.critical:not(.charging) {
+    color: @error;
+}
+
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#battery,
+#tray,
+#custom-notification {
+    background: @pill;
+    color: @text;
+    border-radius: 20px;
+    padding: 0 10px;
+    margin: 3px 2px;
+}
+
+#custom-notification.dnd-none,
+#custom-notification.dnd-notification {
+    color: @warm;
+}
+
+tooltip {
+    background: @elevated;
+    border: 1px solid @border;
+    border-radius: 8px;
+}
+
+tooltip label {
+    color: @text;
+}

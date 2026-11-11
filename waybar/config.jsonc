@@ -1,0 +1,110 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "spacing": 10,
+
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+
+    "modules-left": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "cpu",
+        "memory",
+        "network",
+        "pulseaudio",
+        "battery",
+        "tray",
+        "custom/notification"
+    ],
+
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate"
+    },
+
+    "clock": {
+        "format": "{:%a, %d %b  |  %H:%M}",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>"
+    },
+
+    "cpu": {
+        "format": "󰻠 {usage}%",
+        "tooltip": true
+    },
+
+    "memory": {
+        "format": "󰍛 {percentage}%",
+        "tooltip": true
+    },
+
+    "network": {
+        "format-wifi": "󰤨 {signalStrength}%",
+        "format-ethernet": "󰈀 Connected",
+        "format-disconnected": "󰤭 Offline",
+        "tooltip-format": "{essid}\n{ipaddr}"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 Muted",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol",
+        "scroll-step": 5
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-icons": [
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ]
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+
+"custom/notification": {
+  "tooltip": false,
+  "format": "{icon}",
+  "format-icons": {
+    "notification": "󰂚",
+    "none": "󰂜",
+    "dnd-notification": "󰂛 F OFF",
+    "dnd-none": "󰂛 F OFF",
+    "inhibited-notification": "󰂚",
+    "inhibited-none": "󰂜",
+    "dnd-inhibited-notification": "󰂛 F OFF",
+    "dnd-inhibited-none": "󰂛 F OFF"
+  },
+  "return-type": "json",
+  "exec-if": "which swaync-client",
+  "exec": "swaync-client -swb",
+  "on-click": "swaync-client -t -sw",
+  "on-click-right": "swaync-client -d -sw",
+  "escape": true
+}
+}

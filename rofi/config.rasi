@@ -1,0 +1,8 @@
+configuration {
+    modi: "drun,run,window";
+    show-icons: true;
+    kb-cancel: "Escape,Control+g";
+    terminal: "kitty";
+}
+
+@theme "themes/minimal"

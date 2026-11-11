@@ -1,0 +1,37 @@
+# Media player
+[[opener.play]]
+run = 'vlc %s'
+orphan = true
+desc = "VLC"
+
+# PDF viewer
+[[opener.pdf]]
+run = 'okular %s'
+orphan = true
+desc = "Okular"
+
+# Image viewer
+[[opener.image]]
+run = 'imv %s'
+orphan = true
+desc = "Image Viewer"
+
+# Videos
+[[open.prepend_rules]]
+mime = "video/*"
+use = "play"
+
+# Audio
+[[open.prepend_rules]]
+mime = "audio/*"
+use = "play"
+
+# PDFs
+[[open.prepend_rules]]
+mime = "application/pdf"
+use = "pdf"
+
+# Images
+[[open.prepend_rules]]
+mime = "image/*"
+use = "image"
