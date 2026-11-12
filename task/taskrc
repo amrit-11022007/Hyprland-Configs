@@ -1,0 +1,5 @@
+default.command=list
+confirmation=off
+color=on
+dateformat=D-M-Y
+news.version=3.5.0
